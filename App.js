@@ -1,14 +1,28 @@
 import {Button, StyleSheet, Text, TextInput, View} from "react-native";
+import StyleButton from "./Components/StyleButton";
+import {useState} from "react";
 
 export default function App() {
+  const [goals, setGoals] = useState([]);
+  const [input, setInput] = useState("");
+
+  const handleAddGoal = () => {
+    if (input.trim().length > 0) {
+      setGoals([...goals, input]);
+      setInput("");
+    }
+  }
   return (
     <View style={styles.appContainer}>
       <View style={styles.inputContainer}>
-        <TextInput style={styles.textInput} placeholder='Your Goal' />
-        <Button title="Add Goal" />
+        <TextInput style={styles.textInput} placeholder='Your Goal' value={input} onChangeText={(text) => setInput(text)} />
+        <StyleButton title="Add Goal" backgroundColor={"#fab"} color={"black"} onPress={handleAddGoal} />
       </View>
-      <View>
+      <View style={styles.goalsContainer}>
         <Text>List of goals:</Text>
+        {goals.map((goal, index) => (
+          <Text key={index}>{goal}</Text>
+        ))}
       </View>
     </View>
   );
@@ -16,18 +30,26 @@ export default function App() {
 
 const styles = StyleSheet.create({
   appContainer: {
-    padding: 50,
-    width: "100%",
+    paddingTop: 50,
+    flex: 1,
+    paddingHorizontal: 20,
   },
   inputContainer: {
+    flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    gap: 10
+    alignItems: 'center',
+    gap: 10,
+    borderBottomWidth: 1,
+    borderColor: "#ccc",
+    marginBottom: 20,
   },
   textInput: {
-    width: '80%',
+    flex: 1,
     borderWidth: 1,
     borderColor: '#ccc',
-    padding: 8,
+    paddingHorizontal: 10,
+  },
+  goalsContainer: {
+    flex: 10,
   }
 });
