@@ -1,9 +1,13 @@
-import {Button, StyleSheet, Text, View} from 'react-native';
+import { Button, StyleSheet, Text, View } from "react-native";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Hello World!</Text>
+      <Text
+        style={styles.textWithBorder}
+      >
+        Hello World!
+      </Text>
       <Button title={"Click me"} />
     </View>
   );
@@ -12,8 +16,16 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
+  textWithBorder: {
+    padding: 20,
+    margin: 16,
+    borderStyle: "solid",
+    borderColor: "black",
+    borderWidth: 2,
+    borderRadius: 4,
+  }
 });
