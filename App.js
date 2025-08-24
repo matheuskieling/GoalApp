@@ -1,4 +1,4 @@
-import {Button, StyleSheet, Text, TextInput, View} from "react-native";
+import {Button, ScrollView, StyleSheet, Text, TextInput, View} from "react-native";
 import StyleButton from "./Components/StyleButton";
 import {useState} from "react";
 
@@ -18,24 +18,24 @@ export default function App() {
         <TextInput style={styles.textInput} placeholder='Your Goal' value={input} onChangeText={(text) => setInput(text)} />
         <StyleButton title="Add Goal" backgroundColor={"#fab"} color={"black"} onPress={handleAddGoal} />
       </View>
-      <View style={styles.goalsContainer}>
+      <ScrollView style={styles.goalsContainer} showsVerticalScrollIndicator={false}>
         <Text>List of goals:</Text>
         {goals.map((goal, index) => (
           <Text key={index}>{goal}</Text>
         ))}
-      </View>
+      </ScrollView>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   appContainer: {
-    paddingTop: 50,
+    paddingVertical: 50,
     flex: 1,
     paddingHorizontal: 20,
   },
   inputContainer: {
-    flex: 1,
+    height: 60,
     flexDirection: 'row',
     alignItems: 'center',
     gap: 10,
@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   goalsContainer: {
-    flex: 10,
+    flex: 1,
+    backgroundColor: "#ccc",
   }
 });
