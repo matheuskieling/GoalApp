@@ -49,7 +49,7 @@ export default function GoalInput({ onSubmit }) {
                   title="Add Goal"
                   backgroundColor={"green"}
                   color={"white"}
-                  onPress={handleCancel}
+                  onPress={handleSubmit}
                 />
               </View>
               <View style={{flex: 1}}>

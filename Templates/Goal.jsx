@@ -15,7 +15,6 @@ export default function Goal() {
 
   return (
     <View style={styles.appContainer}>
-      <GoalInput onSubmit={handleAddGoal} />
       <View
         style={styles.goalsContainer}
       >
@@ -32,7 +31,7 @@ export default function Goal() {
           showsVerticalScrollIndicator={false}
         />
       </View>
-
+      <GoalInput onSubmit={handleAddGoal} />
     </View>
   )
 
