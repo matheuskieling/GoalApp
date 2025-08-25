@@ -1,4 +1,4 @@
-﻿import {Modal, StyleSheet, Text, TextInput, View} from "react-native";
+﻿import {Image, Modal, StyleSheet, Text, TextInput, View} from "react-native";
 import StyleButton from "./StyleButton";
 import { useState } from "react";
 
@@ -29,6 +29,7 @@ export default function GoalInput({ onSubmit }) {
       </View>
       <Modal visible={isVisible} animationType="slide">
         <View style={{justifyContent: "center", flex: 1}}>
+          <Image style={styles.image} source={require('../assets/images/goal.png')} />
           <View style={{padding: 20, alignItems: "center", justifyContent: "center", }}>
             <Text>Add your new Goal</Text>
           </View>
@@ -67,6 +68,11 @@ export default function GoalInput({ onSubmit }) {
   );
 }
 const styles = StyleSheet.create({
+  image: {
+    width: 200,
+    height: 200,
+    alignSelf: "center",
+  },
   inputContainer: {
     justifyContent: "center",
     gap: 10,
